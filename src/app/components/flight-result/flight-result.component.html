@@ -1,0 +1,69 @@
+<div class="container" style="padding-top: 150px;">
+  <div class="card">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="true" href="#">One-way</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="true" href="#">Round-trip</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="true" href="#">Multi-city</a>
+        </li>
+      </ul>
+    </div>
+<!---------------------------------------------------------------------------------------------------->
+    <div class="card-body">
+      <div class="input-group">
+        <select class="form-control" *ngFor="let item of EgyCities" (change)="fromCity($event)">
+          <option selected disabled>From...</option>
+          <option value="{{item}}">{{item}}</option>
+        </select>
+
+        <span class="input-group-text"><i class="pi pi-arrow-right-arrow-left"></i></span>
+
+        <select class="form-control" *ngFor="let i of OutEgy" (change)="toCity($event)">
+          <option selected disabled>To...</option>
+          <option value="{{i}}">{{i}}</option>
+        </select>
+        <div class="mx-3">
+          <label for="">Departure Date</label>
+          <input type="date" formControlName="start" (change)="getDate($event)" class="form-control">
+        </div>
+      </div>
+<!---------------------------------------------------------------------------------------------------->
+<div class="row mt-2">
+        <div class="col mt-2">
+          <input type="checkbox" name="Direct" value="Direct" id="">
+          <label for="">Direct Flights Only</label>
+        </div>
+        <div class="col mt-2">
+          <select class="form-control" name="" id="">
+            <option value="all" selected>Seats</option>
+          </select>
+        </div>
+        <div class="col mt-2">
+          <select class="form-control" name="" id="">
+            <option value="all" selected>Economy</option>
+          </select>
+        </div>
+        <div class="col mt-2">
+          <select class="form-control" name="" id="">
+            <option value="all" selected>Payment Types</option>
+          </select>
+        </div>
+        <div class="col mt-2">
+          <button routerLink="/flightResult"  (click)="getSearchResult()"  class="btn" style="background-color :  rgb(169, 203, 241);">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div *ngFor="let item of flights">
+  <p>{{item.flightDTO}}</p>
+</div>
+
+<app-flight-card [loaded]="loaded"></app-flight-card>
+

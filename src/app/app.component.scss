@@ -1,0 +1,8 @@
+.bg{
+  background-image: linear-gradient(to top,rgb(82, 82, 82), transparent), url("../assets/forest.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  width: auto;
+  z-index: -5;
+}
